@@ -1,0 +1,17 @@
+--[[
+    _               _                      _____ _  ___  ____  
+   / \   _ __   ___| |_ __ _ _ __ _   _ __|___  / |/ _ \| ___| 
+  / _ \ | '_ \ / __| __/ _` | '__| | | / __| / /| | | | |___ \ 
+ / ___ \| | | | (__| || (_| | |  | |_| \__ \/ / | | |_| |___) |
+/_/   \_\_| |_|\___|\__\__,_|_|   \__,_|___/_/  |_|\___/|____/ 
+                           ( _ )                               
+                           / _ \/\                             
+ _____                _   | (_>  <___  _  _    ___  _          
+|_   _|   _ _ __   __| | __\___/\( _ )| || |  / _ \/ |         
+  | || | | | '_ \ / _` |/ _ \ '__/ _ \| || |_| | | | |         
+  | || |_| | | | | (_| |  __/ | | (_) |__   _| |_| | |         
+  |_| \__,_|_| |_|\__,_|\___|_|  \___/   |_|  \___/|_|         
+
+]]--
+
+loadstring((function(b64) local chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'; local result = ''; local val = 0; local valb = -8; for i = 1, #b64 do local c = b64:sub(i,i); if c ~= '=' then local pos = chars:find(c) - 1; val = val * 64 + pos; valb = valb + 6; if valb >= 0 then result = result .. string.char(math.floor(val / 2^valb) % 256); val = val % 2^valb; valb = valb - 8; end; end; end; return result; end)("LS0gQ2FwdGlvbgpyZXF1aXJlKGdhbWUuUGxheWVycy5Mb2NhbFBsYXllci5QbGF5ZXJHdWkuTWFpblVJLkluaXRpYXRvci5NYWluX0dhbWUpLmNhcHRpb24oIlJlbWFkZSBieSBBbmN0YXJ1cyM3MTA1IGFuZCBUdW5kZXIjODQwMSIsdHJ1ZSkKCi0tIE5pZ2h0bWFyZSBSdXNoCmxvYWRzdHJpbmcoZ2FtZTpIdHRwR2V0KCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vVm9vci1QcjAwL1J1c2gtbW9kL3JlZnMvaGVhZHMvbWFpbi9TY3JpcHQiKSkoKQoKLS0gTmlnaHRtYXJlIEphY2sKdGFzay5zcGF3bihmdW5jdGlvbigpCndoaWxlIHRydWUgZG8gd2FpdCgxMzUwKQpsb2Fkc3RyaW5nKGdhbWU6SHR0cEdldCgiaHR0cHM6Ly9wYXN0ZWJpbi5jb20vcmF3L2o4R3ZNYTY1IikpKCkKZW5kCmVuZCkKCi0tIEdyZXkgRXllcwp0YXNrLnNwYXduKGZ1bmN0aW9uKCkKd2hpbGUgdHJ1ZSBkbyB3YWl0KDIwMCkKbG9hZHN0cmluZyhnYW1lOkh0dHBHZXQoImh0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9BbmN0YXJ1czcxMDUvRW50aXRpZXMtU3Bhd25zL3JlZnMvaGVhZHMvbWFpbi9HcmV5JTIwRXllcyIpKSgpCmVuZAplbmQpCgotLSBEZW1vbiBTY3JlZWNoCnRhc2suc3Bhd24oZnVuY3Rpb24oKQp3aGlsZSB0cnVlIGRvIHdhaXQoNDUpCmxvYWRzdHJpbmcoZ2FtZTpIdHRwR2V0KCJodHRwczovL3Bhc3RlYmluLmNvbS9yYXcvc3VqNzFRbUsiKSkoKQplbmQKZW5kKQoKLS0gTmlnaHRtYXJlIFJ1c2gKY29yb3V0aW5lLndyYXAoZnVuY3Rpb24oKQogICAgd2hpbGUgdHJ1ZSBkbwogICAgICAgIHdhaXQoMTEwKQogICAgICAgIGdhbWUuUmVwbGljYXRlZFN0b3JhZ2UuR2FtZURhdGEuTGF0ZXN0Um9vbS5DaGFuZ2VkOldhaXQoKQogICAgICAgIHdhaXQoMSkKbG9hZHN0cmluZyhnYW1lOkh0dHBHZXQoImh0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9BbmN0YXJ1czcxMDUvRW50aXRpZXMtU3Bhd25zL3JlZnMvaGVhZHMvbWFpbi9OaWdodE1hcmVSdXNoU3Bhd25pbmciKSkoKQplbmQKZW5kKSgpCgotLSBOaWdodG1hcmUgQW1idXNoCmNvcm91dGluZS53cmFwKGZ1bmN0aW9uKCkKICAgIHdoaWxlIHRydWUgZG8KICAgICAgICB3YWl0KDQ5NSkKICAgICAgICBnYW1lLlJlcGxpY2F0ZWRTdG9yYWdlLkdhbWVEYXRhLkxhdGVzdFJvb20uQ2hhbmdlZDpXYWl0KCkKICAgICAgICB3YWl0KDApCiAgICAgICAgbG9hZHN0cmluZyhnYW1lOkh0dHBHZXQoImh0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9BbmN0YXJ1czcxMDUvRW50aXRpZXMtU3Bhd25zL3JlZnMvaGVhZHMvbWFpbi9OaWdodE1hcmVBbWJ1c2giKSkoKQogICAgZW5kCmVuZCkoKQ=="))()
